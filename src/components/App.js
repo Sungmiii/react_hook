@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
 const App = () => {
+
     const [resource, setResource] = useState('posts')
+
     return (
         <div className="ui container">
             <div className="content">
