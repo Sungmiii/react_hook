@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
+
+
+const ResourceList = ({ resource }) => {
+
+    const [resources, setResources] = useState([]);
+
+    const fetchResoucrce = async (resource) => {
+        const res = await axios.get(`https://jsonplaceholder.typicode.com/${resource}`)
+
+        setResources(res.data)
+    };
+    console.log(resource)
+
+    useEffect(() => {
+        fetchResoucrce(resource)
+    }, [resource]);
+
+    return (
+        <div>
+            <h3>{resources.length}</h3>
+        </div>
+    )
+};
+
+export default ResourceList;
 
 // class ResourceList extends React.Component {
 
@@ -33,7 +58,3 @@ import axios from 'axios';
 // };
 
 
-const ResourceList = () => {
-
-}
-export default ResourceList;
