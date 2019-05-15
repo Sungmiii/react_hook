@@ -7,15 +7,12 @@ const ResourceList = ({ resource }) => {
 
     const [resources, setResources] = useState([]);
 
-    const fetchResoucrce = async (resource) => {
-        const res = await axios.get(`https://jsonplaceholder.typicode.com/${resource}`)
-
-        setResources(res.data)
-    };
-    console.log(resource)
-
     useEffect(() => {
-        fetchResoucrce(resource)
+        (async (resource) => {
+            const res = await axios.get(`https://jsonplaceholder.typicode.com/${resource}`)
+
+            setResources(res.data)
+        })(resource)
     }, [resource]);
 
     return (
