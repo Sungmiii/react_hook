@@ -14,10 +14,11 @@ const ResourceList = ({ resource }) => {
             setResources(res.data)
         })(resource)
     }, [resource]);
+    console.log(resources)
 
     return (
         <div>
-            <h3>{resources.length}</h3>
+            <ul>{resources.map(list => <li key={list.id}>{list.title}</li>)}</ul>
         </div>
     )
 };
