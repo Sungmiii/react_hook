@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
+import ResourceList from './ResourceList'
 const App = () => {
 
     const [resource, setResource] = useState('posts')
-
+    console.log('app redering')
     return (
         <div className="ui container">
             <div className="content">
@@ -12,7 +13,7 @@ const App = () => {
                     onClick={() => setResource('posts')}
                 >
                     POSTs
-                    </button>
+                     </button>
                 <button
                     onClick={() => setResource('todos')}
                     className="ui button"
@@ -20,7 +21,7 @@ const App = () => {
                     TODOs
                     </button>
             </div>
-            {resource}
+            <ResourceList resource={resource} />
         </div>
     );
 }
